@@ -4,8 +4,12 @@ get '/' do
 end
 
 
+
 get '/create' do
 
 
 erb :creation
+
+post '/create_survey' do
+
 end
