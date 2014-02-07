@@ -14,6 +14,7 @@ LETTERS = {1 => "a", 2 => "b", 3 => "c", 4 => "d", 5 => "e", 6=>"f"}
 
 
 post '/create_survey' do
+  user = User.find[:session_id]
 
   survey = Survey.create(name: params["title"])
   (params.keys.length - 2).times do |num|
@@ -24,6 +25,7 @@ post '/create_survey' do
     end
   end
 
+  user.surveys_created << survey
   survey.id.to_s
 end
 
@@ -34,12 +36,14 @@ get '/survey/:survey_id' do
 end
 
 post '/survey' do
-  "asdfsdafsad"
+  # puts "THESE ARE THE PARAMS: #{params.values}"
 
-  # user = User.find(session[:user_id])
-  # user.choices << Choice.find(params[:choice_id])
+  user = User.find(session[:user_id])
+  params.values.each do |str|
+    user.choices << Choice.find(question_id: str.to_i)
+  end
 
-
+  user.surveys << Survey.find(Choice.find(params.values.first).question.survey.id)
 end
 
 
