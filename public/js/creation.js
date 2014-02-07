@@ -91,7 +91,7 @@ $(document).ready(function() {
             url: "/create_survey",
             data: poll,
             success: function(response) {
-                console.log(response);
+                displayPreview(response)
             }
 
         });
@@ -100,3 +100,12 @@ $(document).ready(function() {
 
 
 });
+
+
+
+function displayPreview(id){
+    var url = "localhost:9393/survey/"+id
+    _.templateSettings.variable = "v";
+        var template = _.template($("script.template3").html());
+        $(".container").append(template({url:url}))
+}
