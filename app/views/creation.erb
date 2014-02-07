@@ -1,3 +1,35 @@
 <input id='title' name='title' type='text'><br>
 <button id='add'>Add  a Question</button>
+
+
+
+<script src='js/creation.js'></script>
 <script src ="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+
+
+
+<script type="text/template" class='template'>
+ <div id='mask'>
+   <div id='question-view'>
+      <h2>Question</h2>
+      <input id='question' type='text'>
+
+      <button id='submit-question'>Add Question</button>
+   </div>
+ </div>
+</script>
+
+
+
+<script type="text/template" class='template2'>
+
+      <div class='choice'>
+        <p class='choice-head'>Choice <%%=v.num%></p>
+        <input class='selection' type='text'>
+        <%% if(v.button === true){%>
+        <img src='plus.png' class='plus'></img>
+        <%%}%>
+      </div>
+
+</script>
