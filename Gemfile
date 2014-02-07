@@ -22,3 +22,5 @@ group :test do
   gem 'rspec'
   gem 'bcrypt-ruby'
 end
+
+gem 'pry'
