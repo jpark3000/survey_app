@@ -10,7 +10,7 @@
 
 
 
-
+<script src='js/viewFrames.js'></script>
 <script type="text/template" class='template'>
  <div id='mask'>
    <div id='question-view'>
@@ -35,7 +35,8 @@
 </script>
 
 <script type="text/template" class="template3">
-<h1><%%=v.url%></h1>
-<iframe src="<%%= v.url %>">
+<p>Spread you survey with the following url:</p>
+<h3>localhost:9393/survey/<%%=v.url%></h3>
+<iframe id='viewFrame' src="<%%= v.url %>">
 </iframe>
 </script>
