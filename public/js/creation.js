@@ -66,6 +66,7 @@ $(document).ready(function() {
 
         function moveButton() {
             $('.plus').css("top", "+=84")
+            $("#submit-question").css("top", "+=84")
         }
 
         $("#submit-question").click(function() {
