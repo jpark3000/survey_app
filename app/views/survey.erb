@@ -2,14 +2,15 @@
 <h1> <%= @survey.name%> </h1>
 
 
-<form>
+<form action='/survey' method='post'>
 <% @survey.questions.each do |question| %>
    <p><%= question.content%></p>
    <% question.choices.each do |choice| %>
     <label><%= choice.content %></label>
-    <input type="radio" name="choice_id" value="<%= choice.id %>"><br>
+    <input type="radio" name="<%=question.id%>" value="<%= choice.id %>"><br>
    <% end %>
 <%end%>
+<input type="submit" value="submit">
 </form>
 
 
