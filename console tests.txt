@@ -1,0 +1,41 @@
+bob = User.create(name: "bob", email: "bob@bob.bob", password_hash: "bob")
+rob = User.create(name: "rob", email: "rob@rob.rob", password_hash: "rob")
+bob.surveys_created << Survey.create(name: "bob's survey")
+
+rob.surveys << Survey.first
+
+survey.questions << Question.create(content: "whats your fav food?")
+
+
+
+
+
+
+Getting the choices from a user in a given survey
+  pam_choices_on_survey = pam.choices.select{|choice| choice.question.survey.id == 7}
+
+
+Getting the questions and answers from a user in a survey
+
+ pam_choices_on_survey.each { |choice| p "Survey Name: #{choice.question.survey.name} Question: #{choice.question.content}, Answer: #{choice.content}" }
+
+
+
+
+Select all responses to a survey
+ Response.all.select { |response| response.choice.question.survey.id == 8 }
+
+
+
+test for above
+ all_responses_to_food_survey.each { |resp| p "#{resp.content}" }
+
+
+
+Get all responses to a certain question
+ all_responses_to_food_survey.select { |resp| resp.choice.question.id = 7 }
+
+
+
+
+ Response.all.select { |resp|  resp.choice.question.id == 7 }.count
