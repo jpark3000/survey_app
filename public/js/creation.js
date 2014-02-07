@@ -78,10 +78,23 @@ $(document).ready(function() {
             q.addChoices(choices);
             poll.addQuestion(q);
             console.log(poll)
+            $("#add").before("<p>" + q.question + "</p><br>")
             $("#mask").remove();
         })
     };
 
+    $("#submit").click(function() {
+        poll['title'] = $("#title").val();
+        $.ajax({
+            type: "POST",
+            url: "/create_survey",
+            data: poll,
+            success: function(response) {
+                console.log(response);
+            }
+
+        });
+    })
 
 
 
