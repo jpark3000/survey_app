@@ -3,7 +3,13 @@ get '/' do
   erb :index
 end
 
-post '/create_survey' do
 
+
+get '/create' do
+
+
+erb :creation
+
+post '/create_survey' do
 
 end
