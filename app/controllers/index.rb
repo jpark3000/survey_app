@@ -37,10 +37,10 @@ end
 post '/survey' do
   # puts "THESE ARE THE PARAMS: #{params.values}"
 
-  # user = User.find(session[:user_id])
-  # params.values.each do |str|
-  #   user.choices << Choice.find(question_id: str.to_i)
-  # end
+  user = User.find(session[:user_id])
+  params.values.each do |str|
+    user.choices << Choice.find(question_id: str.to_i)
+  end
 
 
 end
