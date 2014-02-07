@@ -5,10 +5,14 @@
 th {
     text-align: left;
 }
+h2{
+    text-align: center;
+}
 #question-view {
     width: 960px;
     height: 860px;
     margin: auto;
+    margin-top:-20px;
     background-color: white;
 }
 #mask {
@@ -18,6 +22,7 @@ th {
     left: 0;
     top: 0;
     background-color: rgba(37, 37, 37, .4);
+    overflow: scroll;
 }
 #question-view > h2 {
     width: 100%;
@@ -26,7 +31,7 @@ th {
 }
 #submit-question {
     position: absolute;
-    top: 737px;
+    top: 250px;
     left: 653px;
 }
 .plus {
@@ -40,6 +45,15 @@ th {
     width: 24px;
     position: relative;
     top: 6px;
+}
+#add, #submit {
+    margin-top: 25px;
+}
+#add {
+    margin-left: 360px;
+}
+#title {
+    margin-left: 374px;
 }
 .choice {
     margin-top: 38px;
