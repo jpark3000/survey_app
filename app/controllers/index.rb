@@ -39,12 +39,13 @@ get '/survey/:survey_id' do
   erb :survey
 end
 
-get '/stats' do
+get '/stats/:survey_id' do
 
-
+@survey_id = params[:survey_id]
+@survey_name = Survey.find(params[:survey_id]).name
 erb :stats
 end
- 
+
 post '/survey' do
   puts "THESE ARE THE PARAMS: #{params.values}"
 
@@ -68,7 +69,7 @@ post '/stats/:survey_id' do
       hashy[q.content][choice.content] = choice.responses.count
     end
   end
-
+  content_type :json
   hashy.to_json
 end
 

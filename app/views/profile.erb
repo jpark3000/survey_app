@@ -6,6 +6,6 @@
 
 <% if @all_surveys %>
   <% @all_surveys.each_with_index do |survey, index|%>
-  <p> <%= index + 1 %>.   <%=survey.name%>  <a href="/survey/<%= survey.id %>">(localhost:9393/survey/<%= survey.id %>)</a>
+  <p> <%= index + 1 %>.   <%=survey.name%>  <a href="/survey/<%= survey.id %>">(localhost:9393/survey/<%= survey.id %>)</a> <a href="stats/<%= survey.id %>">Stats</a> </p>
   <%end%>
 <%end%>

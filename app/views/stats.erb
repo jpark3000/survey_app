@@ -1,23 +1,41 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src ="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script type="text/javascript">
+    function drawChart() {
+      var id = $("#piechart").data("survey-id")
+        $.ajax({
+          type: "POST",
+          url: "/stats/" + id,
+          success:renderCharts
+        });
+
+      }
+
+
+      var chartData;
+      function renderCharts(data){
+        console.log(data)
+          _(_.keys(data)).each(function(value, index){
+            $(".container").append( "<div id="+index+" style='width: 900px; height: 500px;' ></div>");
+            dataArr = _.pairs(data[value]);
+            dataArr.unshift(["question", "answer"]);
+                 var options = {
+                  title: value,
+                  };
+            chartData = google.visualization.arrayToDataTable(dataArr);
+            var chart = new google.visualization.PieChart(document.getElementById(index.toString()));
+            chart.draw(chartData, options);
+          })
+
+
+
+      }
+
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
 
-        var options = {
-          title: 'My Daily Activities'
-        };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
-      }
+
     </script>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <h1><%= @survey_name %><h1>
+    <div id="piechart" style="display:none;" data-survey-id="<%=@survey_id%>"></div>
