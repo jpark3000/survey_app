@@ -44,6 +44,7 @@ post '/survey' do
   end
 
   user.surveys << Survey.find(Choice.find(params.values.first).question.survey.id)
+  redirect '/profile'
 end
 
 
