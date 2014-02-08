@@ -14,6 +14,8 @@ LETTERS = {1 => "a", 2 => "b", 3 => "c", 4 => "d", 5 => "e", 6=>"f"}
 
 
 post '/create_survey' do
+
+  p params
   user = User.find[:session_id]
 
   survey = Survey.create(name: params["title"])
