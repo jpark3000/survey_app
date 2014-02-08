@@ -42,6 +42,7 @@ end
 get '/stats/:survey_id' do
 
 @survey_id = params[:survey_id]
+@survey_name = Survey.find(params[:survey_id]).name
 erb :stats
 end
 
