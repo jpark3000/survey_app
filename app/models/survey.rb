@@ -12,4 +12,10 @@ class Survey < ActiveRecord::Base
 
   has_many :questions
 
+  def self.numbers(id)
+    Survey
+
+  end
+
+
 end
