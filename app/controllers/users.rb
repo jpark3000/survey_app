@@ -1,6 +1,7 @@
 
 get '/profile' do
-
+  @all_surveys = User.find(session[:user_id]).surveys_created
+  puts "#{@all_surveys}"
   erb :profile
 end
 
