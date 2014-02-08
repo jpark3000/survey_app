@@ -86,7 +86,7 @@ $(document).ready(function() {
 
     $("#submit").click(function() {
         poll['title'] = $("#title").val();
-        console.log(poll)
+        console.log(poll);
         $.ajax({
             type: "POST",
             url: "/create_survey",
