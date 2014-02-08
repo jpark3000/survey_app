@@ -39,6 +39,12 @@ get '/survey/:survey_id' do
   erb :survey
 end
 
+get '/stats' do
+
+
+erb :stats
+end
+ 
 post '/survey' do
   puts "THESE ARE THE PARAMS: #{params.values}"
 
