@@ -29,8 +29,8 @@ post '/create_survey' do
   end
 
 
-  # user.surveys_created << survey
-  # survey.id.to_s
+  user.surveys_created << survey
+  survey.id.to_s
 end
 
 get '/survey/:survey_id' do
@@ -49,6 +49,21 @@ post '/survey' do
 
   user.surveys << Survey.find(Choice.find(params.values.first).question.survey.id)
   redirect '/profile'
+end
+
+post '/stats/:survey_id' do
+  hashy = {}
+
+  survey = Survey.find(params[:survey_id])
+
+  survey.questions.each do |q|
+    hashy[q.content] = {}
+    q.choices.each do |choice|
+      hashy[q.content][choice.content] = choice.responses.count
+    end
+  end
+
+  hashy.to_json
 end
 
 
