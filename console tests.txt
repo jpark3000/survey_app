@@ -39,3 +39,5 @@ Get all responses to a certain question
 
 
  Response.all.select { |resp|  resp.choice.question.id == 7 }.count
+
+

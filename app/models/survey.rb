@@ -6,10 +6,19 @@ class Survey < ActiveRecord::Base
   has_many :completions
   has_many :users, through: :completions
 
-  has_many :responses
-  has_many :users, through: :responses
+
 
 
   has_many :questions
+  has_many :choices, through: :questions
+  has_many :responses, through: :choices
+
+
+
+
 
 end
+
+
+
+

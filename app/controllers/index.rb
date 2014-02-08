@@ -15,6 +15,7 @@ LETTERS = {1 => "a", 2 => "b", 3 => "c", 4 => "d", 5 => "e", 6=>"f"}
 
 post '/create_survey' do
 
+
   user = User.find(session[:user_id])
 
 
@@ -26,6 +27,7 @@ post '/create_survey' do
       question.choices << Choice.create(content: params[(num + 1).to_s][LETTERS[key_num+1]], key:LETTERS[key_num+1])
     end
   end
+
 
   user.surveys_created << survey
   survey.id.to_s
@@ -47,6 +49,21 @@ post '/survey' do
 
   user.surveys << Survey.find(Choice.find(params.values.first).question.survey.id)
   redirect '/profile'
+end
+
+post '/stats/:survey_id' do
+  hashy = {}
+
+  survey = Survey.find(params[:survey_id])
+
+  survey.questions.each do |q|
+    hashy[q.content] = {}
+    q.choices.each do |choice|
+      hashy[q.content][choice.content] = choice.responses.count
+    end
+  end
+
+  hashy.to_json
 end
 
 
