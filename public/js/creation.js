@@ -86,6 +86,7 @@ $(document).ready(function() {
 
     $("#submit").click(function() {
         poll['title'] = $("#title").val();
+        console.log(poll)
         $.ajax({
             type: "POST",
             url: "/create_survey",
@@ -103,9 +104,25 @@ $(document).ready(function() {
 
 
 
-function displayPreview(id){
-    var url = "localhost:9393/survey/"+id
+function displayPreview(id) {
+    var url = id
     _.templateSettings.variable = "v";
-        var template = _.template($("script.template3").html());
-        $(".container").append(template({url:url}))
+    var template = _.template($("script.template3").html());
+    $(".container").html(template({
+        url: url
+    }))
+
+    view.create({
+        "view": "viewFrame",
+        "index": {
+            "name": url,
+            "location": url
+        },
+        "path": "survey",
+        "exceptions": {
+        },
+        "autoSize": true
+    })
+
+
 }

@@ -37,6 +37,10 @@ h2{
 .plus {
     width: 24px;
 }
+iframe{
+    width:100%;
+    border:0;
+}
 #question-view input {
     width: 300px;
     margin-left: 330px;
