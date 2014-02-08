@@ -1,6 +1,11 @@
 <h2>profile!</h2>
 
-
-
 <a href = '/logout'>Log out</a>
-<a href = '/create'>Create das survey</a>
+<a href = '/create'>Create a Survey</a>
+
+
+<% if @all_surveys %>
+  <% @all_surveys.each_with_index do |survey, index|%>
+  <p> <%= index + 1 %>.   <%=survey.name%>  <a href="/survey/<%= survey.id %>">(localhost:9393/survey/<%= survey.id %>)</a>
+  <%end%>
+<%end%>
