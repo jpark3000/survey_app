@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :surveys_created, :class_name => 'Survey', :foreign_key => 'creator_id'
 
 
-  validates :name, uniqueness: true, presence: true
+  validates :email, uniqueness: true, presence: true
 
   def password
     @password ||= Password.new(password_hash)
@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email, password)
     @user = User.find_by_email(email)
+    return false if @user.nil?
     @user.password == password ? @user : false
   end
 
