@@ -43,19 +43,28 @@ get '/stats/:survey_id' do
 
 @survey_id = params[:survey_id]
 @survey_name = Survey.find(params[:survey_id]).name
+if session[:user_id]
+  @email = User.find(session[:user_id]).email
+end
 erb :stats
 end
 
 post '/survey' do
   puts "THESE ARE THE PARAMS: #{params.values}"
+  if session[:user_id]
+    user = User.find(session[:user_id])
+    params.values.each do |str|
+      user.choices << Choice.find(str.to_i)
+    end
 
-  user = User.find(session[:user_id])
-  params.values.each do |str|
-    user.choices << Choice.find(str.to_i)
+    user.surveys << Survey.find(Choice.find(params.values.first).question.survey.id)
+    redirect '/profile'
+  else
+    params.values.each do |str|
+      Response.create(choice_id: str.to_i)
+    end
+    redirect to("/")
   end
-
-  user.surveys << Survey.find(Choice.find(params.values.first).question.survey.id)
-  redirect '/profile'
 end
 
 post '/stats/:survey_id' do
