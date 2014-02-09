@@ -65,8 +65,10 @@ post '/stats/:survey_id' do
 
   survey.questions.each do |q|
     hashy[q.content] = {}
+    ## { who killed georgia? => { } }
     q.choices.each do |choice|
       hashy[q.content][choice.content] = choice.responses.count
+       ## { who killed georgia? => { rahul : 2, the japanese cop: 0 } }
     end
   end
   content_type :json

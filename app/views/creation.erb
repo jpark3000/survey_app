@@ -1,7 +1,21 @@
-<h2>Create your Survey</h2>
+<div class="nav">
+    <ul>
+      <li><a href = '/profile'><%= User.find(session[:user_id]).email %> </a>
+        <ul>
+        <li><a href = '/logout'>Log out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+<div class="container">
+
+<h2>What would you like to name your survey?</h2>
 <input id='title' name='title' type='text'><br>
+<div id="survey-buttons">
 <button id='add'>Add a Question</button>
 <button id='submit'>Submit Survey</button>
+</div>
 
 
 
@@ -17,7 +31,7 @@
       <h2>Question</h2>
       <input id='question' type='text'>
 
-      <button id='submit-question'>Add Question</button>
+      <button id='submit-question'>Add Me</button>
    </div>
  </div>
 </script>
@@ -40,3 +54,5 @@
 <iframe id='viewFrame' src="<%%= v.url %>">
 </iframe>
 </script>
+</div>
+

@@ -1,3 +1,17 @@
+ <div class="nav">
+   <ul>
+      <li><a href = '/profile'><%= User.find(session[:user_id]).email %> </a>
+        <ul class="submenu">
+          <li><a href = '/logout'>Sign Out</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href = '/create'>Create a Survey</a></li>
+    </ul>
+  </div>
+
+<div class="container">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src ="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script type="text/javascript">
@@ -21,6 +35,11 @@
             dataArr.unshift(["question", "answer"]);
                  var options = {
                   title: value,
+                  pieHole: 0.4,
+                  backgroundColor: "#FFFDF6",
+                  fontName: "Roboto, serif",
+                  fontSize: "20",
+                  colors: ["#34d1b2","#8070d8","#9ff33d", "#086FA1", "#ff4040"],
                   };
             chartData = google.visualization.arrayToDataTable(dataArr);
             var chart = new google.visualization.PieChart(document.getElementById(index.toString()));
@@ -37,5 +56,6 @@
 
 
     </script>
-    <h1><%= @survey_name %><h1>
+    <h1 id="stats_name">Stats for Survey <%= @survey_name %><h1>
     <div id="piechart" style="display:none;" data-survey-id="<%=@survey_id%>"></div>
+</div>

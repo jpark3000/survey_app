@@ -1,25 +1,43 @@
-<div class='container'>
-<h1> <%= @survey.name%> </h1>
+ <div class="nav">
+   <ul>
+      <li><a href = '/profile'><%= User.find(session[:user_id]).email %> </a>
+        <ul class="submenu">
+          <li><a href = '/logout'>Sign Out</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href = '/create'>Create a Survey</a></li>
+    </ul>
+  </div>
+
+<div class="container">
+
+<h1 id="survey-n"> <%= @survey.name%> </h1>
 
 
-<form action='/survey' method='post'>
+<form id="taking-survey" action='/survey' method='post'>
 <% @survey.questions.each do |question| %>
-   <p><%= question.content%></p>
+   <p class="survey-q"><%= question.content%></p>
    <% question.choices.each do |choice| %>
-    <label><%= choice.content %></label>
-    <input type="radio" name="<%=question.id%>" value="<%= choice.id %>"><br>
+    <label class="survey-c"><%= choice.content %></label>
+    <input class="survey-b" type="radio" name="<%=question.id%>" value="<%= choice.id %>"><br>
    <% end %>
 <%end%>
-<input type="submit" value="submit">
+<br><br>
+<input id="suvey-s" type="submit" value="submit">
 </form>
-
-
-
-
-
-
-
-
-
-
+<br><br>
+<br><br>
+<br><br>
 </div>
+<footer>Copyright &copy 2013, Surveying In Solidarity Lydia Koller, Justin Park, Lorena Mesa, Juan Ortiz &amp Joe Shiedel</footer>
+
+
+
+
+
+
+
+
+

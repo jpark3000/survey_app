@@ -1,11 +1,43 @@
-<h2>profile!</h2>
-
-<a href = '/logout'>Log out</a>
-<a href = '/create'>Create a Survey</a>
-
-
-<% if @all_surveys %>
-  <% @all_surveys.each_with_index do |survey, index|%>
-  <p> <%= index + 1 %>.   <%=survey.name%>  <a href="/survey/<%= survey.id %>">(localhost:9393/survey/<%= survey.id %>)</a> <a href="stats/<%= survey.id %>">Stats</a> </p>
+ <div class="nav">
+    <ul>
+      <li><a href = '/profile'><%= User.find(session[:user_id]).email %> </a>
+        <ul class="submenu">
+          <li><a href = '/logout'>Sign Out</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href = '/create'>Create a Survey</a></li>
+    </ul>
+</div>
+ <div class="container">
+  <div id="photo">
+  <img src="user_img.jpg" alt="beautiful photo of juan"/>
+  </div>
+<% if !@all_surveys.empty? %>
+  <div id="your_surveys">
+  <h3> Your Surveys </h3>
+  <table>
+  <tr>
+    <th>Name</th>
+    <th>URL</th>
+    <th></th>
+  </tr>
+  <% @all_surveys.each do |survey|%>
+   <tr>
+    <td><%=survey.name%> </td>
+    <td><a href="/survey/<%= survey.id %>">(localhost:9393/survey/<%= survey.id %>)</a></td>
+    <td class="stats"><a href="stats/<%= survey.id %>">Stats</a> </td>
+  </tr>
   <%end%>
-<%end%>
+  </table>
+  </div>
+<% end %>
+<% if @all_surveys.empty? %>
+  <div id="make_survey">
+    <p> Whoops ... looks like nothings here!</p>
+    <button type="button">Create a Survey</button>
+  </div>
+<% end %>
+</div>
+

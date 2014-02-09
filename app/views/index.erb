@@ -1,36 +1,32 @@
+
 <div class="container">
+
+  <h1 id="welcome"> Welcome to Survey Ninjas </h1>
+  <div id="cat">
+  <img id="ninja" src="ninja_kitty.png" alt="very cute ninja cat"/>
+  </div>
 <% if @error %>
   <%= @error %>
 <% end %>
-<div id = "sign-in">
-<h1>Sign In</h1>
-  <form id="sign-in" method="post" action="/sessions">
-    Email:<input type = "text" name = "email">
-    Password: <input type="password" name="password" placeholder="6 or more characters">
-    <br>
-    <div class="submit"><input type="submit" value="Sign In"></div>
+<div id="forms">
+<h1 id="intro"> What would you like to do? </h1>
+<h1 id="sign-in">Sign In</h1>
+<div id = "sign-in-form">
+  <form id="old-form" method="post" action="/sessions">
+    Email:<input type = "text" name = "email" placeholder=" e.g. whoam@i.co"><br><br>
+    Password: <input type="password" name="password" placeholder=" 6 or more characters"><br><br>
+    <input type="submit" value="Sign In">
   </form>
 </div>
-
-<div id="sign-up">
-<h1>Sign up</h1>
-  <form id="sign-up" method="post" action="/profile">
-    <label class="label" for="name">Name</label>
-    <input type="text" name="name" >
-
-    <br>
-
-    <label class="label" for="email">Email</label>
-    <input type="email" name="email">
-
-    <br>
-
-    <label class="label" for="password">Password</label>
-    <input type="password" name="password" >
-
-    <br>
-
-    <div class="submit"><input type="submit" value="Sign Up"></div>
+<h1 id="sign-up">Sign Up</h1>
+<div id="sign-up-form">
+  <form id="new-form" method="post" action="/profile">
+    Name:<input type="text" name="name" placeholder=" Mr. Popo" > <br><br>
+    Email:<input type="text" name="email" placeholder= " e.g. whoam@i.co"><br><br>
+    Password:<input type="password" name="password" placeholder=" 6 or more characters"><br><br>
+    <input type="submit" value="Sign Up">
   </form>
 </div>
 </div>
+</div>
+

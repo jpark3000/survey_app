@@ -1,20 +1,192 @@
-.container {
-    margin: 20px auto;
+body {
     width: 960px;
+    margin: 0 auto;
+    background: #FFFDF6;
+    color: #FF982A;
+    font-family: 'Roboto', sans-serif;
 }
+
+.container {
+    width: 100%;
+    clear: both;
+    padding-top: 5%;
+}
+
 th {
     text-align: left;
 }
+
 h2{
     text-align: center;
 }
+
+/*navigation bar*/
+
+.nav {
+    width: 100%;
+}
+
+.nav ul {
+    position: relative;
+    float: right;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2em;
+}
+
+.nav li{
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 2px;
+    border-bottom: 3px solid #82FFB2;
+}
+
+.nav ul ul {
+  position: absolute;
+  top: 100%;
+  display: none;
+}
+
+.submenu li {
+  padding-top: 2%;
+  border-bottom: none;
+}
+
+.nav ul li:hover > ul {
+  display: block;
+  font-size: 1em;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #2E16B1;
+}
+
+.nav a:hover {
+    text-decoration: none;
+    color: #8070D8;
+}
+
+/*Log in*/
+
+#welcome {
+    font-size: 3em;
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+    color: #5ed18b;
+}
+
+#ninja {
+    margin-top: 10%;
+    width: 30%;
+    float: left;
+}
+
+#forms {
+    width: 70%;
+    float: right;
+}
+
+#intro {
+    margin-top: 15%;
+    text-align: center;
+}
+
+#sign-in-form, #sign-up-form  {
+    margin-left: 22%;
+    display: none;
+    font-size: 2em;
+}
+
+#sign-in-form input[type="text"], #sign-up-form input[type="text"] {
+    color: #36d884;
+    background-color: #7109aa;
+    border: none;
+    width: 55%;
+    margin-left: 15%;
+}
+
+#sign-in-form input[type="password"], #sign-up-form input[type="password"] {
+    margin-left: 1.5%;
+    color: #36d884;
+    background-color: #7109aa;
+    border: none;
+    width: 55%;
+}
+
+#sign-in-form input[type="submit"], #sign-up-form input[type="submit"] {
+    float: right;
+    padding: 5%;
+    color: #36d884;
+    background-color: #7109aa;
+    border: none;
+    border-radius: 15px;
+}
+
+#sign-in, #sign-up {
+    margin-left: 37%;
+    background: #2E16B1;
+    width: 180px;
+    padding: 3%;
+    border-radius: 25px;
+    font-size: 3em;
+    font-weight: normal;
+    font-family: 'Roboto Slab', serif;
+}
+
+#sign-in:hover, #sign-up:hover {
+    cursor: pointer;
+}
+
+
+/* Survey Creation */
+
+#survey-buttons {
+    width: 80%;
+}
+
+#survey-buttons button {
+    margin: 0;
+    margin-top: 2%;
+}
+
+#add, #submit {
+  font-size: 2em;
+  font-weight: normal;
+  font-family: 'Roboto Slab', serif;
+  background: #2E16B1;
+  border: none;
+  color: #00A383;
+}
+
+#survey-buttons button:first-of-type {
+    margin-left: 30%;
+}
+
+#title {
+    width: 22%;
+    background: #5ed18b;
+    border: none;
+    color: #2E16B1;
+    font-size: 1.25em;
+    margin-left: 374px;
+}
+
 #question-view {
     width: 960px;
     height: 860px;
     margin: auto;
     margin-top:-20px;
-    background-color: white;
+    background: #FFFDF6;
 }
+
+#question-view input {
+    background: #5ed18b;
+    border: none;
+    font-size: 1.5em;
+    color: #2E16B1;
+}
+
 #mask {
     position: fixed;
     width: 100%;
@@ -24,45 +196,175 @@ h2{
     background-color: rgba(37, 37, 37, .4);
     overflow: scroll;
 }
+
 #question-view > h2 {
     width: 100%;
+    color: #2E16B1;
     text-align: center;
     padding-top: 36px;
+    font-size: 2em;
 }
+
 #submit-question {
     position: absolute;
-    top: 250px;
-    left: 653px;
+    color: #5ed18b;
+    border: none;
+    background: #2E16B1;
+    font-family: 'Roboto Slab', serif;
+    top: 262px;
+    left: 700px;
 }
+
 .plus {
     width: 24px;
 }
+
 iframe{
     width:100%;
     border:0;
 }
+
 #question-view input {
     width: 300px;
     margin-left: 330px;
 }
+
 .plus {
     width: 24px;
     position: relative;
     top: 6px;
 }
-#add, #submit {
-    margin-top: 25px;
-}
-#add {
-    margin-left: 360px;
-}
-#title {
-    margin-left: 374px;
-}
+
 .choice {
     margin-top: 38px;
 }
+
 .choice-head {
+    font-size: 1.5em;
     margin-left: 329px;
     margin-bottom: 4px;
+}
+
+
+/* User Profile */
+
+#your_surveys h3, table {
+    margin-left: 20%;
+}
+
+#your_surveys h3 {
+    font-size: 2em;
+}
+
+#photo {
+    width: 40%;
+    float: left;
+}
+
+#photo img {
+    box-shadow: 20px 20px 20px #888888;
+}
+
+#your_surveys table th, td {
+    padding-right: 5%;
+}
+
+#your_surveys table td a {
+    text-decoration: none;
+    color: #FFA100;
+}
+
+#your_surveys table td a:hover {
+    color: #82FFB2;
+}
+
+#your_surveys table {
+    text-decoration: none;
+    color: #FFA100;
+    font-size: 1.5em;
+}
+
+.stats {
+    padding-left: 5%;
+}
+
+#your_surveys table th:nth-of-type(1) {
+    width: 15%;
+    padding-right: 5%;
+    text-transform: uppercase;
+}
+
+#your_surveys table th:nth-of-type(2) {
+    width: 25%;
+    padding-right: 5%;
+}
+
+#your_surveys table th:nth-of-type(3) {
+    padding-left: 5%;
+}
+
+#your_surveys h3 {
+    color: #2E16B1;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: normal;
+}
+
+#make_survey {
+    text-align: center;
+}
+
+#make_survey > p {
+    color: #00A383;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 2em;
+}
+
+#make_survey > button {
+    color: #FFA100;
+    background-color: #2E16B1;
+    border: none;
+    font-family: 'Roboto Slab', sans-serif;
+    padding: 5%;
+    font-size: 2em;
+    box-shadow: 30px 30px 30px #888888;
+}
+
+/* Survey (taking) */
+
+#survey-n h1 {
+    font-size: 2.5em;
+}
+
+.survey-q {
+    font-size: 2em;
+}
+
+.survey-c {
+    font-size: 1.5em;
+    color: #2E16B1;
+    margin-right: 1%;
+}
+
+#taking-survey input[type="submit"] {
+    color: #5ed18b;
+    border: none;
+    background: #2E16B1;
+    font-family: 'Roboto Slab', serif;
+    margin-left: 45%;
+    padding: 1%;
+    font-size: 1.5em;
+}
+
+/*footer*/
+
+footer {
+    position: fixed;
+    font-size: 1.5em;
+    bottom:0px;
+    left: 0px;
+    color: #5ed18b;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    width: 100%;
+    background: #DCDCDC;
 }
